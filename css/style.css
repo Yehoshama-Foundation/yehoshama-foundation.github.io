@@ -10,10 +10,11 @@
   --bg-alt: #121316;
   --text-main: #e2e2e5;
   --text-muted: #8b8f9e;
-  --accent-color: #4a5d89; /* A muted slate blue */
+  --accent-color: #4a5d89;
+  /* A muted slate blue */
   --accent-light: #7689b7;
   --border-color: #2a2d36;
-  
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
 
@@ -42,7 +43,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 400;
   line-height: 1.2;
   color: #ffffff;
@@ -274,9 +280,20 @@ a:hover {
   font-weight: 600;
 }
 
-.badge.active { background: rgba(74, 154, 107, 0.15); color: #6fc28d; }
-.badge.planned { background: rgba(200, 150, 50, 0.15); color: #dcb35c; }
-.badge.future { background: rgba(139, 143, 158, 0.15); color: var(--text-muted); }
+.badge.active {
+  background: rgba(74, 154, 107, 0.15);
+  color: #6fc28d;
+}
+
+.badge.planned {
+  background: rgba(200, 150, 50, 0.15);
+  color: #dcb35c;
+}
+
+.badge.future {
+  background: rgba(139, 143, 158, 0.15);
+  color: var(--text-muted);
+}
 
 /* Timeline */
 .timeline {
@@ -359,7 +376,7 @@ a:hover {
   gap: 1.5rem;
 }
 
-.support-links > *:not(.crypto-box) {
+.support-links>*:not(.crypto-box) {
   min-width: 200px;
 }
 
@@ -469,9 +486,178 @@ a:hover {
   opacity: 0.7;
 }
 
+/* Dropdown Nav */
+.has-dropdown {
+  position: relative;
+}
+
+.dropdown-arrow {
+  font-size: 0.7em;
+  margin-left: 0.2em;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(18, 19, 22, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  min-width: 180px;
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  z-index: 1001;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.has-dropdown.dropdown-open .dropdown-menu,
+.has-dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(74, 93, 137, 0.15);
+  color: var(--text-main);
+}
+
+/* Card Links */
+a.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.card-link:hover {
+  color: inherit;
+}
+
+/* Sub-page Hero */
+.subpage-hero {
+  padding-top: calc(var(--nav-height) + 4rem);
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.back-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--accent-light);
+}
+
+.protocol-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.protocol-title-row h1 {
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.subpage-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+/* Protocol Detail */
+.protocol-detail .prose ul {
+  list-style: none;
+  padding: 0;
+}
+
+.principle-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.principle-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-light);
+}
+
+/* Blog */
+.blog-list {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-empty {
+  text-align: center;
+  max-width: 500px;
+}
+
+.blog-fish {
+  font-size: 3rem;
+  color: var(--accent-color);
+  opacity: 0.5;
+  margin-bottom: 2rem;
+}
+
+.blog-empty p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
-  .hero-slogan { font-size: 2.5rem; }
-  .split-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .site-nav { display: none; /* In a real app add a hamburger menu, keeping minimal for now */ }
+  .hero-slogan {
+    font-size: 2.5rem;
+  }
+
+  .split-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .site-nav {
+    display: none;
+    /* In a real app add a hamburger menu, keeping minimal for now */
+  }
+
+  .protocol-title-row h1 {
+    font-size: 2rem;
+  }
+
+  .subpage-hero {
+    padding-top: calc(var(--nav-height) + 2rem);
+  }
 }

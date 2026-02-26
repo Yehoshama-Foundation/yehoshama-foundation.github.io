@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARC Protocol — The Yehoshama Foundation</title>
+    <meta name="description"
+        content="ARC: Resilient archival protocol for preserving digital heritage. A core project of the Yehoshama Foundation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="../index.html" class="ascii-logo">{ &gt;&lt;((('&gt; }</a>
+                <span class="logo-text">Yehoshama<br>Foundation</span>
+            </div>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="#vision">Vision</a></li>
+                    <li class="has-dropdown">
+                        <a href="../index.html#projects">Projects <span class="dropdown-arrow">▾</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="arc.html">ARC</a></li>
+                            <li><a href="shroomdb.html">ShroomDB</a></li>
+                            <li><a href="rune.html">Rune</a></li>
+                            <li><a href="protocol-4.html">Protocol #4</a></li>
+                            <li><a href="protocol-5.html">Protocol #5</a></li>
+                            <li><a href="protocol-6.html">Protocol #6</a></li>
+                            <li><a href="protocol-7.html">Protocol #7</a></li>
+                            <li><a href="protocol-8.html">Protocol #8</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="../index.html#support">Support</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="subpage-hero">
+            <div class="container">
+                <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+                <div class="protocol-title-row">
+                    <h1>ARC</h1>
+                    <span class="badge active">Active</span>
+                </div>
+                <p class="subpage-subtitle">Resilient Archival Protocol</p>
+            </div>
+        </section>
+
+        <section id="vision" class="content-section">
+            <div class="container section-inner">
+                <div class="protocol-detail">
+                    <div class="section-header">
+                        <h2>Vision</h2>
+                        <div class="accent-line"></div>
+                    </div>
+                    <div class="prose">
+                        <p>ARC is a resilient archival protocol designed to preserve digital heritage in a way that
+                            ensures long-term accessibility, even if the underlying technology fails or changes.</p>
+                        <p>Built on the principle of the "analogue fallback," ARC ensures that archived data can
+                            gracefully degrade to human-readable formats. No proprietary lock-in. No silent data rot.
+                            Just resilient, honest preservation.</p>
+                    </div>
+
+                    <div class="section-header" style="margin-top: 4rem;">
+                        <h2>Principles</h2>
+                        <div class="accent-line"></div>
+                    </div>
+                    <div class="prose">
+                        <ul class="principle-list">
+                            <li>Data must outlive the software that created it.</li>
+                            <li>Every archive must have a human-readable fallback layer.</li>
+                            <li>No proprietary encoding without an open specification.</li>
+                            <li>Integrity verification must be built into the format itself.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-header" style="margin-top: 4rem;">
+                        <h2>Technical Specification</h2>
+                        <div class="accent-line"></div>
+                    </div>
+                    <div class="prose">
+                        <p class="status-note">Full technical specification document coming soon. Check back for updates
+                            or follow our progress on GitHub.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="content-section alternate-bg">
+            <div class="container section-inner">
+                <div class="section-header">
+                    <h2>ARC Roadmap</h2>
+                    <div class="accent-line"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Phase 1: Specification</h3>
+                            <p>Define the core archival format, encoding rules, and fallback mechanisms.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker empty"></div>
+                        <div class="timeline-content">
+                            <h3>Phase 2: Reference Implementation</h3>
+                            <p>Build the first open-source reference implementation and validation tools.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker empty"></div>
+                        <div class="timeline-content">
+                            <h3>Phase 3: Community Adoption</h3>
+                            <p>Release documentation, guides, and community tooling for widespread adoption.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="ascii-logo">{ &gt;&lt;((('&gt; }</span>
+                <span>Yehoshama Foundation</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://yehoshama.com" target="_blank" rel="noopener">yehoshama.com</a>
+            </div>
+            <div class="footer-copy">
+                &copy; <span id="year"></span> The Yehoshama Foundation. Open-source principles.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

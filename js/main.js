@@ -5,8 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links (exclude dropdown toggle)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Skip dropdown toggle links
+        if (anchor.parentElement && anchor.parentElement.classList.contains('has-dropdown')) return;
+
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
@@ -17,33 +20,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetEl.scrollIntoView({
                     behavior: 'smooth'
                 });
-
-                // Update history without refreshing
                 history.pushState(null, null, targetId);
+            }
+
+            // Close any open dropdowns when navigating
+            document.querySelectorAll('.has-dropdown').forEach(el => {
+                el.classList.remove('dropdown-open');
+            });
+        });
+    });
+
+    // Dropdown menu toggle via click
+    document.querySelectorAll('.has-dropdown > a').forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const parent = this.parentElement;
+            const isOpen = parent.classList.contains('dropdown-open');
+
+            // Close all dropdowns
+            document.querySelectorAll('.has-dropdown').forEach(el => {
+                el.classList.remove('dropdown-open');
+            });
+
+            // Toggle this one
+            if (!isOpen) {
+                parent.classList.add('dropdown-open');
             }
         });
     });
 
-    // Active link highlighting on scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.site-nav a');
+    // Close dropdown when clicking anywhere outside
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.has-dropdown')) {
+            document.querySelectorAll('.has-dropdown').forEach(el => {
+                el.classList.remove('dropdown-open');
+            });
+        }
+    });
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
+    // Close dropdown when clicking a link inside it
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function () {
+            document.querySelectorAll('.has-dropdown').forEach(el => {
+                el.classList.remove('dropdown-open');
+            });
         });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    }, { passive: true });
+    });
 });
+
