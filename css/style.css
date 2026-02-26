@@ -142,7 +142,7 @@ a:hover {
   color: var(--text-muted);
 }
 
-.site-nav ul {
+.site-nav>ul {
   list-style: none;
   display: flex;
   gap: 2rem;
