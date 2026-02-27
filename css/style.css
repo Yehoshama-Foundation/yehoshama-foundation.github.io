@@ -127,11 +127,11 @@ a:hover {
   gap: 1rem;
 }
 
-.ascii-logo {
-  font-family: var(--font-mono);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--accent-light);
+.site-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -173,8 +173,17 @@ a:hover {
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 800px;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .hero-slogan {
@@ -182,12 +191,25 @@ a:hover {
   font-weight: 300;
   letter-spacing: -0.03em;
   line-height: 1.1;
+  flex: 1;
 }
 
 .hero-logo {
-  font-size: 5rem;
-  color: var(--accent-color);
-  opacity: 0.8;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-logo img {
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+}
+
+@media (min-width: 768px) {
+  .hero-logo img {
+    max-height: 350px;
+  }
 }
 
 /* Sections */
